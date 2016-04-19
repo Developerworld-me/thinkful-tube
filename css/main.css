@@ -17,19 +17,28 @@
 	margin: 0 auto;
 }
 
-/*.titleOverlay {
+.titleOverlay {
+	display: none;
+}
+
+.resultsContainer:hover .titleOverlay {
+	display: block;
+	width: 100%;
+	height: 100%;
 	position: absolute;
-	background-color: black;
-	width: 100px;
-	height: 100px;
+	top: 0;
+	left: 0;
 	z-index: 100;
-	margin-top: 0;
-}*/
+	pointer-events: none; /* prevent overlay from blocking clicks */
+	background: rgba(0,0,0,.5);
+	color: white;
+}
 
 .videoTitle {
 	padding-top: 2.6%;
 }
 .resultsContainer {
+	position: relative;
 	text-align: center;
 	border: 1px solid black;
     padding: 1em;
