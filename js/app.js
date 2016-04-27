@@ -2,9 +2,9 @@ function getRequest(searchTerm){
   var params = {
 	part: 'snippet',
 	maxResults: 6,
-	key: 'AIzaSyA41PJXhkKXL0Je1kdPm_-Y4a320U58KE8', 
+	key: 'AIzaSyA41PJXhkKXL0Je1kdPm_-Y4a320U58KE8',
 	q: searchTerm,
-	}
+};
   url = 'https://www.googleapis.com/youtube/v3/search';
 
   $.getJSON(url, params, function(data){
@@ -29,8 +29,8 @@ function getRequest(searchTerm){
     	   var id = item.id.videoId;
     	   var title = item.snippet.title;
     	   var thumbnail = item.snippet.thumbnails.high.url;
-			   $('.searchResults').append("<div class='resultsContainer'><a href='http://www.youtube.com/watch?v=" + id + "'><img src='" + thumbnail + "'></a><p class='videoTitle'>" + title + "</p></div>");
-	
+			   $('.searchResults').append("<div class='resultsContainer'><a href='http://www.youtube.com/watch?v=" + id + "'><img src='" + thumbnail + "'></a><div class='titleOverlay'><p class='videoTitle'>" + title + "</p></div></div>");
+
   		});
 	});
  }
@@ -46,13 +46,5 @@ $(function() {
     var searchResults = getRequest(searchQuery);
     //console.log(getRequest('dogs'));
     // buildThumbnailHtml(searchResults);
-  })
-})
-
-
-
-
-
-
-
-
+  });
+});
